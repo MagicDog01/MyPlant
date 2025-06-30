@@ -17,3 +17,6 @@ def login(request):
 
 def signup_view(request):
     return render(request, 'signup.html')
+
+def add_plant_view(request):
+    return render(request, 'add_plant.html')
