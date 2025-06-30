@@ -1,10 +1,206 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MyPlant - Profilo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green: #43a047;
+      --light-green: #e8f5e9;
+      --white: #fff;
+      --gray: #f5f5f5;
+      --dark: #1b5e20;
+      --shadow: 0 4px 24px rgba(67,160,71,0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', Arial, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(120deg, var(--light-green) 60%, var(--white) 100%);
+      min-height: 100vh;
+      color: #222;
+    }
+
+    header {
+      background: var(--green);
+      color: var(--white);
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: var(--shadow);
+    }
+
+    header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      color: var(--white);
+      text-decoration: none;
+      margin-left: 2rem;
+      font-weight: 500;
+      font-size: 1.1rem;
+      transition: opacity 0.2s;
+    }
+
+    nav a:hover {
+      opacity: 0.7;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 2.5rem auto;
+      padding: 0 1rem;
+    }
+
+    .profile-container {
+      background: var(--white);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      padding: 2.5rem 2rem;
+    }
+
+    .user-info {
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid var(--light-green);
+    }
+
+    .user-info h2 {
+      font-size: 1.6rem;
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .user-info p {
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .add-plant-btn {
+      background: var(--green);
+      color: var(--white);
+      font-weight: 700;
+      padding: 0.8rem 1.2rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-bottom: 2rem;
+    }
+
+    .add-plant-btn:hover {
+      background: var(--dark);
+    }
+
+    .plant-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .plant-card {
+      background: var(--gray);
+      border-left: 5px solid var(--green);
+      border-radius: 12px;
+      padding: 1rem 1rem;
+      flex: 1 1 260px;
+      box-shadow: 0 2px 8px rgba(67,160,71,0.06);
+      transition: transform 0.2s;
+    }
+
+    .plant-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .plant-card strong {
+      color: var(--dark);
+      font-size: 1.2rem;
+    }
+
+    .plant-card p {
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+      color: #444;
+    }
+
+    .plant-card .date {
+      margin-top: 0.5rem;
+      font-size: 0.85rem;
+      color: #888;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.2rem 0;
+      margin-top: 2.5rem;
+      font-size: 1rem;
+      color: #aaa;
+    }
+
+    @media (max-width: 800px) {
+      .plant-cards {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <h1>MyPlant</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Diario</a>
+      <a href="#">Profilo</a>
+    </nav>
+  </header>
 
+  <main>
+    <div class="profile-container">
+      <div class="user-info">
+        <h2>Mario Rossi</h2>
+        <p>Email: mario.rossi@example.com<br>
+           Iscritto dal: 12 marzo 2024<br>
+           Piante registrate: 5
+        </p>
+      </div>
+
+
+        <a href="{% url 'add_plant' %}" class="add-plant-btn">+ Aggiungi nuova pianta</a>
+
+      <div class="plant-cards">
+        <div class="plant-card">
+          <strong>Sansevieria</strong>
+          <p>Annaffiata dopo 2 settimane, perfetta!</p>
+          <div class="date">2025-06-25</div>
+        </div>
+        <div class="plant-card">
+          <strong>Aloe Vera</strong>
+          <p>Foglie tagliate per gel, ricrescono bene.</p>
+          <div class="date">2025-06-20</div>
+        </div>
+        <div class="plant-card">
+          <strong>Ficus Elastica</strong>
+          <p>Travasata in vaso più grande.</p>
+          <div class="date">2025-06-15</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 MyPlant - Coltiva la tua passione
+  </footer>
 </body>
 </html>

@@ -1,4 +1,4 @@
-from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 
 from django.contrib.auth import authenticate, login as auth_login, get_user_model
@@ -51,5 +51,11 @@ def profile_view(request):
 def signup_view(request):
     return render(request, 'signup.html')
 
+
+def profile_view(request):
+    return render(request, 'profile.html')
+
 def add_plant_view(request):
     return render(request, 'add_plant.html')
+
+
