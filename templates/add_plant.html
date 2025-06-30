@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+        <html lang="it">
+        <head>
+          <meta charset="UTF-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          <title>MyPlant - Diario</title>
+          <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+          <style>
+            :root {
+              --green: #43a047;
+              --light-green: #e8f5e9;
+              --white: #fff;
+              --gray: #f5f5f5;
+              --dark: #1b5e20;
+              --shadow: 0 4px 24px rgba(67,160,71,0.08);
+            }
+            * {
+              box-sizing: border-box;
+              margin: 0;
+              padding: 0;
+              font-family: 'Montserrat', Arial, sans-serif;
+            }
+            body {
+              background: linear-gradient(120deg, var(--light-green) 60%, var(--white) 100%);
+              min-height: 100vh;
+              color: #222;
+            }
+            header {
+              background: var(--green);
+              color: var(--white);
+              padding: 1.5rem 2rem;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              box-shadow: var(--shadow);
+            }
+            header h1 {
+              font-size: 2rem;
+              font-weight: 700;
+              letter-spacing: 1px;
+            }
+            nav a {
+              color: var(--white);
+              text-decoration: none;
+              margin-left: 2rem;
+              font-weight: 500;
+              font-size: 1.1rem;
+              transition: opacity 0.2s;
+            }
+            nav a:hover {
+              opacity: 0.7;
+            }
+            main {
+              max-width: 900px;
+              margin: 2.5rem auto;
+              padding: 0 1rem;
+            }
+            .diary-container {
+              background: var(--white);
+              border-radius: 18px;
+              box-shadow: var(--shadow);
+              padding: 2.5rem 2rem;
+              display: flex;
+              flex-wrap: wrap;
+              gap: 2.5rem;
+              align-items: flex-start;
+            }
+            .diary-form {
+              flex: 1 1 320px;
+              min-width: 280px;
+              max-width: 350px;
+              background: var(--light-green);
+              border-radius: 12px;
+              padding: 1.5rem 1.2rem;
+              box-shadow: 0 2px 10px rgba(67,160,71,0.07);
+              display: flex;
+              flex-direction: column;
+              gap: 1.2rem;
+            }
+            .diary-form h2 {
+              color: var(--dark);
+              font-size: 1.3rem;
+              margin-bottom: 0.5rem;
+              font-weight: 700;
+            }
+            .diary-form input, .diary-form textarea, .diary-form button {
+              font-size: 1rem;
+              border-radius: 8px;
+              border: 1px solid #c8e6c9;
+              padding: 0.8rem;
+              outline: none;
+              transition: border 0.2s;
+            }
+            .diary-form input:focus, .diary-form textarea:focus {
+              border: 1.5px solid var(--green);
+            }
+            .diary-form button {
+              background: var(--green);
+              color: var(--white);
+              border: none;
+              font-weight: 700;
+              cursor: pointer;
+              transition: background 0.2s;
+            }
+            .diary-form button:hover {
+              background: var(--dark);
+            }
+            .plant-list {
+              flex: 2 1 400px;
+              display: flex;
+              flex-direction: column;
+              gap: 1.2rem;
+            }
+            .plant-list-title {
+              font-size: 1.2rem;
+              color: var(--green);
+              font-weight: 600;
+              margin-bottom: 0.7rem;
+            }
+            .plant-card {
+              background: var(--gray);
+              border-radius: 10px;
+              box-shadow: 0 2px 8px rgba(67,160,71,0.05);
+              padding: 1.2rem 1rem;
+              display: flex;
+              flex-direction: column;
+              gap: 0.4rem;
+              border-left: 5px solid var(--green);
+              animation: fadeIn 0.5s;
+            }
+            .plant-card strong {
+              font-size: 1.1rem;
+              color: var(--dark);
+            }
+            .plant-card .date {
+              font-size: 0.95rem;
+              color: #888;
+            }
+            @keyframes fadeIn {
+              from { opacity: 0; transform: translateY(20px);}
+              to { opacity: 1; transform: translateY(0);}
+            }
+            @media (max-width: 800px) {
+              .diary-container {
+                flex-direction: column;
+                gap: 2rem;
+                padding: 1.2rem 0.5rem;
+              }
+              main {
+                padding: 0 0.2rem;
+              }
+            }
+            footer {
+              text-align: center;
+              padding: 1.2rem 0;
+              margin-top: 2.5rem;
+              font-size: 1rem;
+              color: #aaa;
+              background: none;
+            }
+          </style>
+        </head>
+        <body>
+          <header>
+            <h1>MyPlant</h1>
+            <nav>
+              <a href="#">Home</a>
+              <a href="#">Diario</a>
+              <a href="#">Profilo</a>
+            </nav>
+          </header>
+          <main>
+            <div class="diary-container">
+              <form class="diary-form">
+                <h2>Aggiungi una pianta</h2>
+                <input type="text" name="nome_pianta" placeholder="Nome della pianta" required />
+                <textarea name="descrizione" placeholder="Note, eventi, crescita..." rows="4" required></textarea>
+                <input type="date" name="data" />
+                <button type="submit">Aggiungi al Diario</button>
+              </form>
+              <div class="plant-list">
+                <div class="plant-list-title">Le tue piante</div>
+                <!-- Esempio di card pianta, da sostituire con ciclo Django -->
+                <div class="plant-card">
+                  <strong>Monstera Deliciosa</strong>
+                  <span>Foglie nuove spuntate oggi!</span>
+                  <span class="date">2025-06-01</span>
+                </div>
+                <div class="plant-card">
+                  <strong>Pothos</strong>
+                  <span>Innaffiata e concimata.</span>
+                  <span class="date">2025-05-28</span>
+                </div>
+                <!-- Fine esempio -->
+              </div>
+            </div>
+          </main>
+          <footer>
+            &copy; 2025 MyPlant - Coltiva la tua passione
+          </footer>
+        </body>
+        </html>
