@@ -1,10 +1,114 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>signup</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MyPlant - Registrati</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #006644, #3cbd95);
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .signup-box {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 30px;
+            width: 340px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.15);
+        }
+
+        .signup-box h1 {
+            color: #00a676;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .signup-box p {
+            text-align: center;
+            color: #555;
+        }
+
+        .signup-box input[type="text"],
+        .signup-box input[type="email"],
+        .signup-box input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .signup-box label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        .signup-box button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 15px;
+            background-color: #00a676;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .signup-box button:hover {
+            background-color: #007a54;
+        }
+
+        .login-link {
+            display: block;
+            width: 100%;
+            text-align: center;
+            margin-top: 15px;
+            padding: 10px 0;
+            background-color: #fff;
+            color: #00a676;
+            border: 1px solid #00a676;
+            border-radius: 5px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .login-link:hover {
+            background-color: #00a676;
+            color: #fff;
+        }
+    </style>
 </head>
 <body>
+    <div class="signup-box">
+        <h1>MyPlant</h1>
+        <p>Crea il tuo account</p>
 
+        <form method="post">
+            {% csrf_token %}
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password1">Password</label>
+            <input type="password" id="password1" name="password1" required>
+
+            <label for="password2">Conferma Password</label>
+            <input type="password" id="password2" name="password2" required>
+
+            <button type="submit">Registrati</button>
+        </form>
+
+        <a href="{% url 'login' %}" class="login-link">Hai già un account? Accedi</a>
+    </div>
 </body>
 </html>
