@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Verifica OTP</title>
+</head>
+<body>
+    <h2>Autenticazione a due fattori</h2>
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        <label for="otp">Inserisci il codice OTP:</label>
+        <input type="text" id="otp" name="otp" required>
+        <button type="submit">Verifica</button>
+    </form>
+</body>
+</html>
